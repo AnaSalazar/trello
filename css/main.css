@@ -1,0 +1,39 @@
+body{
+	background-image: url(../img/fondo.jpg);
+}
+h2{
+	display: inline-block;
+	margin: 0 10px 0 0;
+	color: white;
+}
+#sub-titulo{
+	display: inline-block;
+	margin: 0 10px;
+	text-decoration: none;
+	color: white;
+}
+.titulos{
+	background-color: black;
+	padding: 15px;
+	font-family: sans-serif;
+}
+#contenedor{
+	margin: 20px 0;
+}
+#tareas{
+	background-color: grey;
+	display: inline-block;
+	padding: 10px;
+	display: none;
+}
+#inputPrimero::-webkit-input-placeholder {color: grey ; font-weight :bold;}
+#inputPrimero{
+	background-color: palegreen;
+	color: black;
+	border: 0;
+	padding: 12px;
+	border-radius: 5px;
+}
+#inputPrimero:hover{
+	background-color: limegreen;
+}
