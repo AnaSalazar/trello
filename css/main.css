@@ -21,19 +21,46 @@ h2{
 	margin: 20px 0;
 }
 #tareas{
-	background-color: grey;
-	display: inline-block;
-	padding: 10px;
-	display: none;
+	background-color: #60BDAF;
+	padding: 18px;
+	border-radius: 5px;
+	width: 250px;
 }
-#inputPrimero::-webkit-input-placeholder {color: grey ; font-weight :bold;}
-#inputPrimero{
+#btn{
 	background-color: palegreen;
-	color: black;
+	color: dimgray;
 	border: 0;
 	padding: 12px;
 	border-radius: 5px;
+	width: 250px;
+	text-align: left;
 }
-#inputPrimero:hover{
-	background-color: limegreen;
+#btn:hover{
+	background-color: #59F859;
+	cursor: pointer;
+}
+#inputPrimero{
+	display:block;
+	height: 35px;
+	border-radius: 5px;
+	border: 0;
+	width: 100%;
+}
+#botonGuardar{
+	background-color: #F88AAF;
+	color: white;
+	border: 1px solid white;
+	border-radius: 5px;
+	margin-top: 10px;
+	padding: 8px 10px;
+	cursor: pointer;
+}
+#botonGuardar:hover{
+	background-color: #B96783;
+}
+.ocultar{
+	display: none;
+}
+.mostrar{
+	display: block;
 }
