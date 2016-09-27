@@ -50,12 +50,12 @@ h2{
 #btnGuardar, .btnAnadir{
 	background-color: #F88AAF;
 	color: white;
-	display: inline-block;
 	border: 1px solid white;
 	border-radius: 5px;
 	margin-top: 10px;
 	padding: 8px 10px;
 	cursor: pointer;
+	display: inline;
 }
 #btnGuardar:hover, .btnAnadir:hover{
 	background-color: #B96783;
