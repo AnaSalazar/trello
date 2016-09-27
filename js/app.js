@@ -10,7 +10,6 @@ window.addEventListener("load", function() {
 		document.getElementById("tareas").classList.remove("ocultar");
 		document.getElementById("btn").classList.add("ocultar");
 	}
-	
 	var guardarTarea = document.getElementById("btnGuardar");
 	guardarTarea.addEventListener("click", function(e) {
 		e.preventDefault();
@@ -28,28 +27,11 @@ window.addEventListener("load", function() {
 		tareas.appendChild(agregarNewTarea);
 		document.getElementById("form").classList.add("ocultar");
     }
-	
-	var agregarNuevaTarea = document.getElementsByClassName("agregarNuevaTarea");
-	agregarNuevaTarea.addEventListener("click", function(e) {
-		e.preventDefault();
-		agregarTareaLista();
+	var agg = document.querySelector(".agregarNuevaTarea");
+	agg.addEventListener("click", function(e) {
+		crearTarea();
 	});
-	function agregarTareaLista(){
-		/*var nuevoTextArea = document.createElement(textarea);
-    	var textnode = document.createTextNode(" ");
-    	nuevoTextArea.appendChild(textnode);
-    	var list = document.getElementsByClassName("tareas");
-    	list.insertBefore(nuevoTextArea, list.childNodes[0]);
-		
-		var save=document.createElement("button");
-		save.classList.add("");*/
-		var newItem = document.createElement("LI");
-		var textnode = document.createTextNode("Water");
-		newItem.appendChild(textnode);
-		var list = document.getElementsByClass("titulo");
-		list.insertBefore(newItem, list.childNodes[0]);
-    }
-})
+});
 
 
 
