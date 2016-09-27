@@ -4,19 +4,22 @@ window.addEventListener("load", function() {
 	var tareas = document.getElementById("tareas");
 	var formulario = document.getElementById("form");
 	var creado = false;
+	tareas.style.display="none";
 	btn.addEventListener("click", function(e) {
 		e.preventDefault();
 		agregarTarea();
+		
 	});
 	function agregarTarea() {
-		document.getElementById("btn").classList.add("ocultar");
-		document.getElementById("tareas").classList.remove("ocultar");
-		document.getElementById("btn").classList.add("ocultar");
+		document.getElementById("btn").style.display="none";
+		tareas.style.display="inline-block";
+		
 	}
 	var guardarTarea = document.getElementById("btnGuardar");
 	guardarTarea.addEventListener("click", function(e) {
 		e.preventDefault();
 		crearTarea();
+		btn.style.display="inline-block";
 	});
 	function crearTarea(){
 		var tarea = document.getElementById("inputPrimero").value;
@@ -27,7 +30,7 @@ window.addEventListener("load", function() {
 		var agregarNewTarea= document.createElement("div");
 		agregarNewTarea.innerHTML = "Agrega una nueva tarjeta";	agregarNewTarea.classList.add("agregarNuevaTarea");
 		tareas.appendChild(agregarNewTarea);
-		formulario.classList.add("ocultar");
+		formulario.style.display="none";
 
 		agregarNewTarea.addEventListener("click", function() {
 			anadirText(this);	
