@@ -28,13 +28,14 @@ window.addEventListener("load", function() {
 		contenedor.insertBefore(tareas, contenedor.lastElementChild);
 		tareas.appendChild(titulo);
 		var agregarNewTarea= document.createElement("div");
-		agregarNewTarea.innerHTML = "Agrega una nueva tarjeta";	agregarNewTarea.classList.add("agregarNuevaTarea");
+		agregarNewTarea.innerHTML = "Agrega una nueva tarea";	agregarNewTarea.classList.add("agregarNuevaTarea");
 		tareas.appendChild(agregarNewTarea);
 		var array = document.querySelectorAll(".agregarNuevaTarea");
 		btn.style.display="inline-block";
+		var newForm = crearFormulario(tareas,agregarNewTarea);
 		array[array.length-1].addEventListener("click", function() {
 			this.style.display="none";
-			crearFormulario(tareas,this);
+			this.nextElementSibling.style.display=null;
 		});
 	}
 	function crearFormulario(tareas,a){
@@ -47,6 +48,7 @@ window.addEventListener("load", function() {
 		botonGuardarTarea.classList.add("btnAnadir");
 		botonGuardarTarea.innerHTML= "Guardar";
 		form.appendChild(botonGuardarTarea);
+		form.style.display="none";
 		form.lastElementChild.addEventListener("click", function(e){
 			e.preventDefault();
 			form.previousElementSibling.style.display=null;
