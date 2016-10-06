@@ -85,6 +85,7 @@ window.addEventListener("load", function() {
 			}
 			function ondragend(e){
 				this.classList.remove("gray");
+				this.classList.add("animated","swing");
 			}
 		});
 	}
