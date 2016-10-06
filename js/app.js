@@ -6,26 +6,19 @@ window.addEventListener("load", function() {
 	var tareas = document.getElementById("tareas");
 	var form = document.getElementById("form");
 	form.style.display="none";
-	btn.addEventListener("click", function(e) {
+	btn.addEventListener("click",agregarTarea);
+	function agregarTarea(e) {
 		e.preventDefault();
-		agregarTarea();
-		tarea.focus();
-	});
-	function agregarTarea() {
 		btn.style.display="none";
 		form.style.display="inline-block";
+		tarea.value= "";
+		tarea.focus();
 	}
 	var guardarTarea = document.getElementById("btnGuardar");
-	guardarTarea.addEventListener("click", function(e) {
+	guardarTarea.addEventListener("click",crearTarea);
+	function crearTarea(e){
 		e.preventDefault();
-		crearTarea();
-		btn.style.display="inline-block";
-		tarea.value= "";
-	});
-	function crearTarea(){
-
 		form.style.display="none";
-
 		var tarea = document.getElementById("inputPrimero").value;
 		var tareas = document.createElement("div");
 		tareas.classList.add("verde");
@@ -38,12 +31,11 @@ window.addEventListener("load", function() {
 		agregarNewTarea.innerHTML = "Agrega una nueva tarjeta";	agregarNewTarea.classList.add("agregarNuevaTarea");
 		tareas.appendChild(agregarNewTarea);
 		var array = document.querySelectorAll(".agregarNuevaTarea");
-		for(var i= 0; i < array.length; i++){
-			array[i].addEventListener("click", function() {
-				this.style.display="none";
-				crearFormulario(tareas,this);
-			});
-		}
+		btn.style.display="inline-block";
+		array[array.length-1].addEventListener("click", function() {
+			this.style.display="none";
+			crearFormulario(tareas,this);
+		});
 	}
 	function crearFormulario(tareas,a){
 		var form = document.createElement("form");
@@ -57,6 +49,7 @@ window.addEventListener("load", function() {
 		form.appendChild(botonGuardarTarea);
 		form.lastElementChild.addEventListener("click", function(e){
 			e.preventDefault();
+			form.previousElementSibling.style.display=null;
 			var contenidoText = document.createElement("div");
 			contenidoText.classList.add("tareaNueva");
 			contenidoText.innerHTML= textArea.value;
