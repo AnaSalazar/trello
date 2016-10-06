@@ -1,4 +1,5 @@
 window.addEventListener("load", function() {
+	var contador =1;
 	var contenedor = document.getElementById("contenedor");
 	var btn = document.getElementById("btn");
 	var tarea = document.getElementById("inputPrimero");
@@ -6,8 +7,8 @@ window.addEventListener("load", function() {
 	var tareas = document.getElementById("tareas");
 	var form = document.getElementById("form");
 	form.style.display="none";
-	btn.addEventListener("click",agregarTarea);
-	function agregarTarea(e) {
+	btn.addEventListener("click",agregarTarjeta);
+	function agregarTarjeta(e) {
 		e.preventDefault();
 		btn.style.display="none";
 		form.style.display="inline-block";
@@ -28,7 +29,8 @@ window.addEventListener("load", function() {
 		contenedor.insertBefore(tareas, contenedor.lastElementChild);
 		tareas.appendChild(titulo);
 		var agregarNewTarea= document.createElement("div");
-		agregarNewTarea.innerHTML = "Agrega una nueva tarea";	agregarNewTarea.classList.add("agregarNuevaTarea");
+		agregarNewTarea.innerHTML = "Agrega una nueva tarea";
+		agregarNewTarea.classList.add("agregarNuevaTarea");
 		tareas.appendChild(agregarNewTarea);
 		var array = document.querySelectorAll(".agregarNuevaTarea");
 		btn.style.display="inline-block";
@@ -36,7 +38,10 @@ window.addEventListener("load", function() {
 		array[array.length-1].addEventListener("click", function() {
 			this.style.display="none";
 			this.nextElementSibling.style.display=null;
+			this.nextElementSibling.firstElementChild.focus();
 		});
+		tareas.addEventListener("drop",ondropLista,true);
+		tareas.addEventListener("dragover",ondragoverLista);
 	}
 	function crearFormulario(tareas,a){
 		var form = document.createElement("form");
@@ -54,10 +59,34 @@ window.addEventListener("load", function() {
 			form.previousElementSibling.style.display=null;
 			var contenidoText = document.createElement("div");
 			contenidoText.classList.add("tareaNueva");
+			contenidoText.setAttribute("draggable","true");
+			contenidoText.id= "tarea"+contador;
 			contenidoText.innerHTML= textArea.value;
 			tareas.insertBefore(contenidoText, a);
 			textArea.value="";
 			form.style.display="none";
+			contador++;
+
+			contenidoText.addEventListener("dragstart",ondragstart);
+			contenidoText.addEventListener("dragover",ondragover);
+			contenidoText.addEventListener("drop",ondrop,true);
+			function ondragstart(e){
+				e.dataTransfer.setData("content", e.target.id);
+			}
+			function ondragover(e){
+				e.preventDefault();
+			}
+			function ondrop(e){
+				var id = e.dataTransfer.getData("content");
+				this.parentElement.insertBefore(document.getElementById(id), this.nextElementSibling);
+			}
 		});
+	}
+	function ondropLista(e){
+		var id = e.dataTransfer.getData("content");
+		this.insertBefore(document.getElementById(id), this.firstElementChild.nextElementSibling);
+	}
+	function ondragoverLista(e){
+		e.preventDefault();
 	}
 });
