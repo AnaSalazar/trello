@@ -19,6 +19,7 @@ h2{
 	font-family: fantasy;
 	position: fixed;
 	width: 100%;
+	z-index: 1;
 }
 #contenedor{
 	margin: 0 10px;
