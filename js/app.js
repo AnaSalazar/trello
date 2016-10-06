@@ -42,6 +42,7 @@ window.addEventListener("load", function() {
 		});
 		tareas.addEventListener("drop",ondropLista,true);
 		tareas.addEventListener("dragover",ondragoverLista);
+		tareas.addEventListener("dragleave",ondragleaveLista);
 	}
 	function crearFormulario(tareas,a){
 		var form = document.createElement("form");
@@ -83,15 +84,20 @@ window.addEventListener("load", function() {
 				this.parentElement.insertBefore(document.getElementById(id), this.nextElementSibling);
 			}
 			function ondragend(e){
-				this.classList.add("black");
+				this.classList.remove("gray");
 			}
 		});
 	}
 	function ondropLista(e){
 		var id = e.dataTransfer.getData("content");
 		this.insertBefore(document.getElementById(id), this.firstElementChild.nextElementSibling);
+		this.classList.remove("green");
 	}
 	function ondragoverLista(e){
 		e.preventDefault();
+		this.classList.add("green");
+	}
+	function ondragleaveLista(e){
+		this.classList.remove("green");
 	}
 });
