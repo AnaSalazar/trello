@@ -68,9 +68,11 @@ window.addEventListener("load", function() {
 			contador++;
 
 			contenidoText.addEventListener("dragstart",ondragstart);
+			contenidoText.addEventListener("dragend",ondragend);
 			contenidoText.addEventListener("dragover",ondragover);
 			contenidoText.addEventListener("drop",ondrop,true);
 			function ondragstart(e){
+				this.classList.add("gray");
 				e.dataTransfer.setData("content", e.target.id);
 			}
 			function ondragover(e){
@@ -79,6 +81,9 @@ window.addEventListener("load", function() {
 			function ondrop(e){
 				var id = e.dataTransfer.getData("content");
 				this.parentElement.insertBefore(document.getElementById(id), this.nextElementSibling);
+			}
+			function ondragend(e){
+				this.classList.add("black");
 			}
 		});
 	}

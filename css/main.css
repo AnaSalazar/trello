@@ -115,3 +115,9 @@ h2{
 	display: inline-block;
 	vertical-align: top;
 }
+.gray{
+	background-color: gray;
+}
+.black{
+	background-color: black;
+}
