@@ -20,12 +20,15 @@ h2{
 #contenedor{
 	margin: 20px 0;
 }
-#tareas{
+.verde{
 	background-color: #60BDAF;
 	padding: 18px;
 	border-radius: 5px;
 	width: 250px;
 	opacity: 0.8;
+	display: inline-block;
+	vertical-align: top;
+	margin-right: 10px;
 }
 #btn{
 	background-color: palegreen;
@@ -36,7 +39,7 @@ h2{
 	width: 250px;
 	text-align: left;
 	float: left;
-    margin-right: 20px;
+	margin-right: 20px;
 }
 #btn:hover{
 	background-color: #59F859;
@@ -95,4 +98,9 @@ h2{
 	border: 1px solid white;
 	margin-bottom: 15px;
 	border-radius: 5px;
+}
+
+#contenedor-formulario {
+	display: inline-block;
+	vertical-align: top;
 }
