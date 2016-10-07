@@ -40,7 +40,7 @@ window.addEventListener("load", function() {
 			this.nextElementSibling.style.display=null;
 			this.nextElementSibling.firstElementChild.focus();
 		});
-		tareas.addEventListener("drop",ondropLista,true);
+		tareas.addEventListener("drop",ondropLista);
 		tareas.addEventListener("dragover",ondragoverLista);
 		tareas.addEventListener("dragleave",ondragleaveLista);
 	}
@@ -71,7 +71,7 @@ window.addEventListener("load", function() {
 			contenidoText.addEventListener("dragstart",ondragstart);
 			contenidoText.addEventListener("dragend",ondragend);
 			contenidoText.addEventListener("dragover",ondragover);
-			contenidoText.addEventListener("drop",ondrop,true);
+			contenidoText.addEventListener("drop",ondrop);
 			function ondragstart(e){
 				this.classList.add("gray");
 				e.dataTransfer.setData("content", e.target.id);
@@ -80,12 +80,16 @@ window.addEventListener("load", function() {
 				e.preventDefault();
 			}
 			function ondrop(e){
+				this.parentElement.classList.remove("green")
+				this.parentElement.classList.remove("animated","shake");
 				var id = e.dataTransfer.getData("content");
 				this.parentElement.insertBefore(document.getElementById(id), this.nextElementSibling);
+				e.stopPropagation();
 			}
 			function ondragend(e){
 				this.classList.remove("gray");
 				this.classList.add("animated","swing");
+				this.parentElement.classList.add("animated","shake");
 			}
 		});
 	}
