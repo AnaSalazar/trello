@@ -1,5 +1,5 @@
 body{
-	background-image: url(../img/fondo.jpg);
+	background-image: url(../img/fondo1.jpg);
 	margin: 0;
 }
 h2{
@@ -31,7 +31,6 @@ h2{
 	padding: 18px;
 	border-radius: 5px;
 	width: 250px;
-	opacity: 0.8;
 	display: inline-block;
 	vertical-align: top;
 	margin-right: 10px;
