@@ -81,7 +81,6 @@ window.addEventListener("load", function() {
 			}
 			function ondrop(e){
 				this.parentElement.classList.remove("green")
-				this.parentElement.classList.remove("animated","shake");
 				var id = e.dataTransfer.getData("content");
 				this.parentElement.insertBefore(document.getElementById(id), this.nextElementSibling);
 				e.stopPropagation();
@@ -89,7 +88,6 @@ window.addEventListener("load", function() {
 			function ondragend(e){
 				this.classList.remove("gray");
 				this.classList.add("animated","swing");
-				this.parentElement.classList.add("animated","shake");
 			}
 		});
 	}
